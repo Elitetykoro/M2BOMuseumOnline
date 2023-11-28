@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NXT Museum</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+        section {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 2em;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        img {
+            max-width: 50%;
+            height: auto;
+            display: none;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>NXT Museum</h1>
+        <p>Ontdek de toekomst van technologie</p>
+    </header>
+
+    <section id="slideshow">
+        <img class="slide" src="mus1.jpg" alt="NXT Museum">
+        <img class="slide" src="mus4.jpg" alt="NXT Museum">
+        <img class="slide" src="mus5.jpg" alt="Interactieve exposities">
+        <img class="slide" src="mus6.jpg" alt="Futuristische technologie">
+    </section>
+
+    <h3>geschiedensis</h3>
+    <p>Nxt Museum, opgericht door de jonge ondernemer Merel van Helsdingen, exposeert grootschalige kunstinstallaties,
+         die worden ontwikkeld vanuit interdisciplinaire samenwerkingen tussen gevestigde en opkomende kunstenaars, ontwerpers,
+         technici, muzikanten en wetenschappers</p>
+       <h3>Locatie</h3>
+    <p>Adres: Asterweg 22, 1031 HP Amsterdam</p>
+
+    <script>
+        
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                if (i === index) {
+                    slide.style.display = 'block';
+                } else {
+                    slide.style.display = 'none';
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        
+        setInterval(nextSlide, 5000);
+
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
